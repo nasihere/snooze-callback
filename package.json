@@ -1,6 +1,6 @@
 {
   "name": "snooze.callback",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Snooze Callback to call when time is up. It will help to avoid redundancy work such as hitting database query",
   "main": "index.js",
   "dependencies": {

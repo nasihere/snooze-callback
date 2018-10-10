@@ -4,6 +4,8 @@ const debug = require('debug')('snooze');
 function Snooze() {
     let scheduleTime= [];    
     let clock = null;
+    let interval = 1000;
+        
     function logs ( obj ) {
         debug({tag: 'SnoozeLib', ...obj, time: new Date()})
     }
@@ -14,6 +16,9 @@ function Snooze() {
         })
     }
     return {
+        intervalTime: (timeInterval) => {
+            interval = timeInterval;
+        },
         watch: (listOfTime, callBack) => {
             scheduleTime = listOfTime;
             clock = setInterval(() => {
@@ -29,7 +34,7 @@ function Snooze() {
                     callBack(ex, null)
                 }
             }
-            }, 1000);
+            }, interval);
             
             
             

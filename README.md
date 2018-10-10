@@ -9,8 +9,9 @@ set environment: DEBUG="snooze*"
 ```
 const snooze = require('./snooze.callback');
 
-const tmpTime = ['2018-10-10T14:35:08.366Z','2018-10-10T14:34:08.366Z']
-snooze.watch( tmpTime, (error, data) => { 
+snooze.intervalTime(10000); // set time interval delay
+
+snooze.watch( ['2018-10-10T14:35:08.366Z','2018-10-10T14:34:08.366Z'], (error, data) => { 
     if (error) { 
         snooze.cancel();
         throw new error;
