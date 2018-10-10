@@ -1,5 +1,5 @@
 {
-  "name": "snooze-callback",
+  "name": "snooze.callback",
   "version": "1.0.1",
   "description": "Snooze Callback to call when time is up. It will help to avoid redundancy work such as hitting database query",
   "main": "index.js",

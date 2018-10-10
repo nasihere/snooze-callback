@@ -7,7 +7,7 @@ set environment: DEBUG="snooze*"
 
 # example
 ```
-const snooze = require('./snooze-callback');
+const snooze = require('./snooze.callback');
 
 const tmpTime = ['2018-10-10T14:35:08.366Z','2018-10-10T14:34:08.366Z']
 snooze.watch( tmpTime, (error, data) => { 
