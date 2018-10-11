@@ -9,14 +9,15 @@ set environment: DEBUG="snooze*"
 ```
 const snooze = require('./snooze.callback');
 
-snooze.intervalTime(10000); // set time interval delay
+const { watch, intervalTime } = require('./index');
 
-snooze.watch( ['2018-10-10T14:35:08.366Z','2018-10-10T14:34:08.366Z'], (error, data) => { 
-    if (error) { 
-        snooze.cancel();
-        throw new error;
-    } 
-    console.log("Callback Trigger with datetime param", data) 
+intervalTime(10000);
+watch( ['2018-10-10T16:12:48.761Z','2018-10-10T16:14:46.761Z'], (error, data) => { 
+        error && snooze.cancel() || 
+        console.log("Callback Trigger with param", data);
 });
+
+
+
 ```
 

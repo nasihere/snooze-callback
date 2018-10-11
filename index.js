@@ -19,19 +19,19 @@ function Snooze() {
         intervalTime: (timeInterval) => {
             interval = timeInterval;
         },
-        watch: (listOfTime, callBack) => {
-            scheduleTime = listOfTime;
+        watch: (listOfTime, callBack, context = null) => {
+            scheduleTime = Object.keys(listOfTime);
             clock = setInterval(() => {
                const wakeup = alarm()
                for (const time of wakeup) {    
                 scheduleTime = scheduleTime.filter(x => x !== time);
                 try {
                     logs({ status:'Callback', wakeupTime: time })
-                    callBack(null, time)
+                    callBack.bind(context, null, listOfTime[time])()
                 }
                 catch(ex) {
                     logs({ status:'Failure', wakeupTime: time })
-                    callBack(ex, null)
+                    callBack.bind(context, ex, null)()
                 }
             }
             }, interval);
